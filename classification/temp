@@ -1,0 +1,359 @@
+Inited a AppleSpider, baseUrls = ('http://orientaldaily.on.cc/cnt/main/20160701/index.html', 0)
+[Crawl] Page to visit =  [('http://orientaldaily.on.cc/cnt/main/20160701/index.html', 0)]
+[Crawl] levelVisited =  0  Visiting: http://orientaldaily.on.cc/cnt/main/20160701/index.html
+data =  
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-hk"><!-- InstanceBegin template="/Templates/v2_Basic.dwt" codeOutsideHTMLIsLocked="false" -->
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- InstanceBeginEditable name="title" -->
+<title>東方日報</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="meta" -->
+<meta property="og:title" content="東方日報">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://orientaldaily.on.cc">
+<meta property="og:site_name" content="東方日報">
+<meta property="fb:admins" content="100000897297304">
+<meta property="og:description" content="東方日報網頁提供最豐富的中文新聞及時事資訊，包括要聞、港聞、國際、兩岸、財經、娛樂、副刊、男極圈、體育、馬經、波經、社論、專欄、慈善基金及昔日東方。">
+<meta name="description" content="東方日報網頁提供最豐富的中文新聞及時事資訊，包括要聞、港聞、國際、兩岸、財經、娛樂、副刊、男極圈、體育、馬經、波經、社論、專欄、慈善基金及昔日東方。">
+<meta name="keywords" content="新聞, 中文新聞, 東方新聞, 頭條新聞, 香港新聞, 國際新聞, 兩岸新聞, 財經新聞, 娛樂新聞, 昔日新聞, 社評, 時事評論, 專題報導, 金融, 港股, 產經, 投資, 時尚潮流, 時裝, 旅遊, 搵食, 美容, 名人, 生活, 運程, 科技, 數碼, 汽車, 網趣, 教育">
+<!-- InstanceEndEditable -->
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/css/v2/common.css" media="all">
+<!-- InstanceBeginEditable name="css" -->
+<link rel="stylesheet" type="text/css" href="/css/v2/odn_mainpage.css" media="all">
+<!-- InstanceEndEditable -->
+<script type="text/javascript" src="/js/sdate.js"></script>
+<script type="text/javascript" src="/js/v2/external-inc.js"></script>
+<script type="text/javascript" src="/js/v2/odn-lib.js"></script>
+<!-- InstanceBeginEditable name="js" -->
+<script type="text/javascript" src="/js/keywords/relatedArticle/20160701/ArticleCode.js"></script>
+<script type="text/javascript" src="/js/keywords/relatedVideo/20160701/ArticleVideo.js"></script>
+<script type="text/javascript" src="/cnt/news/20160701/js/articleList-news.js"></script>
+<script type="text/javascript">
+document.write("<scr" + "ipt language='javascript' type='text/javascript' src='/cnt/charity/" + ODN.arcDate + "/js/articleList-charity.js'><\/scr" + "ipt>");
+</script>
+<script type="text/javascript" src="/js/v2/odn-mainpage.js"></script>
+<script type="text/javascript" src="/js/odn-finmainpage.js"></script>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="utilsCTN"><!--NULL--></div>
+<div id="adsSuperCTN"><!-- InstanceBeginEditable name="adsSuper" -->
+		<script type="text/javascript" src="/js/adv/super_00337.js"></script>
+		<!-- InstanceEndEditable --></div>
+<div id="topNavCTN">
+    <ul id="topToolbar">
+        <li class="oncc"><a href="http://on.cc" class="oncc picBtn" title="on.cc 東網主頁"><em>on.cc 東網主頁</em></a></li>
+    </ul>
+    <ul id="topHeader" class="clear">
+        <li class="logo"></li>
+        <li class="epaper"><a href="http://epaper.on.cc/odn/" class="arrowBtn">電子報</a></li>
+    </ul>
+    <div id="topMenu">
+    <ul class="menuList clear">
+        <li class="today"></li>
+        <li><a href="/cnt/news/20160701/index.html" class="news" title="要聞港聞"><em>要聞港聞</em></a></li>
+        <li><a href="/cnt/china_world/20160701/index.html" class="china_world" title="兩岸國際"><em>兩岸國際</em></a></li>
+        <li><a href="/cnt/finance/20160701/index.html" class="finance" title="財經"><em>財經</em></a></li>
+        <li><a href="/cnt/entertainment/20160701/index.html" class="entertainment" title="娛樂"><em>娛樂</em></a></li>
+        <li><a href="/cnt/lifestyle/20160701/index.html" class="lifestyle" title="副刊"><em>副刊</em></a></li>
+        <li><a href="/cnt/adult/20160701/index.html" class="adult" title="男極圈"><em>男極圈</em></a></li>
+        <li><a href="/cnt/sport/20160701/index.html" class="sport" title="體育"><em>體育</em></a></li>
+        <li><a href="http://racing.on.cc/" class="racing" title="馬經" target="_blank"><em>馬經</em></a></li>
+        <li><a href="http://football.on.cc/" class="football" title="波經" target="_blank"><em>波經</em></a></li>
+        <li><a href="/cnt/news/20160701/00186_001.html" class="commentary" title="社論專欄"><em>社論專欄</em></a></li>
+        <li><a href="/cnt/charity/index.html" class="charity" title="慈善基金"><em>慈善基金</em></a></li>
+        <li class="separate"><a href="/archive/index.html" class="archive" title="昔日東方"><em>昔日東方</em></a></li>
+    </ul>
+    </div>
+    <script type="text/javascript">ODN.topNav.init()</script>
+</div>
+<div id="pageCTN" class="clear">
+<!-- InstanceBeginEditable name="main" -->
+	<div id="timelineSlider" class="clear"></div><!--//timelineSlider-->
+    <div id="pageCTN-left">
+    	<div id="adsMantleCTN"><script type="text/javascript" src="/js/adv/mantle_00337.js"></script></div>
+        <div id="pageCTN-left-row1" class="clear">
+        	<div id="headlineCTN">
+            <div id="headlineMantle">
+            
+            	<!-- 20111215 old 
+				<script type="text/javascript" src="http://ad1.on.cc/phpAdsNew/adjs.php?what=zone:1190"></script>
+                -->
+				<!-- new 20111215--><script type="text/javascript">if (adsCombo=="xyz"){document.write('&#32;');}else{document.write('<scr'+'ipt src=http://ad1.on.cc/phpAdsNew/adjs.php?what=zone:1190></scr'+'ipt>');}</script>                
+                
+            </div>
+            <select id="articleListSELECT" class="articleList" size="1"></select>
+			<script type="text/javascript">ODN.articleListSELECT = new ODN.articleList('#articleListSELECT', ODN.data.articleList['news'], ODN.listGroup['news']);</script>
+            	
+            	
+   	  			<a href="/cnt/news/20160701/00174_001.html"><img title="精品酒店 年執百間 血流未止" alt="精品酒店 年執百間 血流未止" class="headline" src="/cnt/news/20160701/photo/0701-00174-001k1.jpg"></img></a>
+            
+            <!-- joe 20121006 -->
+           <script type="text/javascript">if (adsCombo=="xyz"){document.write('&#32;');}else{document.write('<scr'+'ipt src=http://ad1.on.cc/phpAdsNew/adjs.php?what=zone:323></scr'+'ipt>');}</script>
+            
+            <h1>
+            <a href="/cnt/news/20160701/00174_001.html">精品酒店 年執百間 血流未止</a>
+            </h1>
+            <div class="summary">
+                	<a href="/cnt/news/20160701/00174_001.html">訪港旅客持續十二個月報跌，逾百所賓館及精品酒店關門！旅遊發展局昨公布五月份整體訪港旅客數字，約有四百四十五萬人次，較去年...</a>
+            </div>
+            
+            
+            
+            
+            <h3>相關新聞</h3>
+            <ul class="commonList">
+                    
+                    
+                    <li>
+                        <a href="/cnt/news/20160701/00176_002.html">旅團劇減  「唔知下餐仲有無得食」</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/cnt/news/20160701/00176_003.html">零售銷貨值連瀉15月 破沙士紀錄</a>
+                    </li>
+                    
+            </ul>
+            
+            </div>
+            <div id="featureCTN"><!--NULL--></div>
+        </div>
+        <div id="pageCTN-left-row2" class="clear">
+        	<div id="sectionSummay-left">
+                	<div id="chiBoxCTN">
+                    
+                    
+						
+                    	<div class="title">
+							<a title="兩岸國際" class="btnHome" href="/cnt/china_world/20160701/index.html"><em>兩岸國際</em></a>
+						</div>
+						<ul class="commonList blackCommonList" title="兩岸國際">
+						
+						<li><a href="/cnt/china_world/20160701/00180_001.html">槍手炎夏穿羽絨 保安疏漏</a></li>
+						
+						<li><a href="/cnt/china_world/20160701/00180_007.html">美加墨「三好友峰會」  矛頭指特朗普</a></li>
+						
+						
+						<li><a href="/cnt/china_world/20160701/00178_001.html">上海山寨城結業 旅客掃貨</a></li>
+						
+                        </ul>
+                        
+                    </div><!--//chiBoxCTN-->
+                    
+                	<div id="finBoxCTN" class="nextCTN">
+                    
+						
+                    	<div class="title">
+							<a title="財經" class="btnHome" href="/cnt/finance/20160701/index.html"><em>財經</em></a>
+						</div>
+						<ul class="commonList blackCommonList" title="財經">
+						
+						
+						<li><a href="/cnt/finance/20160701/00202_001.html">3大黑天鵝玩轉後市</a></li>
+						
+						<li><a href="/cnt/finance/20160701/00202_005.html">索羅斯講脫歐「金融危機慢慢爆」</a></li>
+						
+						
+                        
+                       
+                       		
+                       
+						<li><a href="/cnt/finance/20160701/00204_001.html">二手樓價半年冧半成</a></li>
+                        </ul>
+                        
+                    </div><!--//finBoxCTN-->
+
+                    
+                	<div id="entBoxCTN" class="nextCTN">
+                    
+						
+                    	<div class="title">
+							<a title="娛樂" class="btnHome" href="/cnt/entertainment/20160701/index.html"><em>娛樂</em></a>
+						</div>
+						<ul class="commonList blackCommonList" title="娛樂">
+						
+						<li><a href="/cnt/entertainment/20160701/00282_001.html">雞姦戲避過一剪《巾幗3》原汁原味播</a></li>
+						
+						<li><a href="/cnt/entertainment/20160701/00282_005.html">傅穎公開教「整容」後生13年</a></li>
+						
+						
+						<li><a href="/cnt/entertainment/20160701/00288_001.html">姬摩絲透點腿張開 Kylie連體玩摸術</a></li>
+                        </ul>
+                        
+                    </div><!--//entBoxCTN-->
+                    
+                	<div id="olBoxCTN" class="nextCTN">
+
+						
+						<div class="title">
+							<a title="副刊" class="btnHome" href="/cnt/lifestyle/20160701/index.html"><em>副刊</em></a>
+						</div>
+						<ul class="commonList blackCommonList" title="副刊">
+ 							
+                            	<li>
+                                	<a href="/cnt/lifestyle/20160701/00315_001.html">GUCCI復古初秋</a>
+                                </li>
+ 							
+                            	<li>
+                                	<a href="/cnt/lifestyle/20160701/00315_002.html">the WAREHOUSE×H-fusion兩周年大開眼界</a>
+                                </li>
+ 							
+                            	<li>
+                                	<a href="/cnt/lifestyle/20160701/00294_001.html">漢堡收收埋埋做世界</a>
+                                </li>
+ 							
+                        </ul>
+                        
+                    </div><!--//olBoxCTN-->
+                    
+                	<div id="sportBoxCTN" class="nextCTN">
+
+						
+                    	<div class="title">
+							<a title="體育" class="btnHome" href="/cnt/sport/20160701/00286_001.html"><em>體育</em></a>
+						</div>
+						<ul class="commonList blackCommonList" title="體育">
+ 							
+	                            <li>
+                                	<a href="/cnt/sport/20160701/00286_001.html">南華重奪總冠軍</a>
+    	                        </li>
+ 							
+	                            <li>
+                                	<a href="/cnt/sport/20160701/00286_002.html">旭暉來季全華班挑戰甲一</a>
+    	                        </li>
+ 							
+	                            <li>
+                                	<a href="/cnt/sport/20160701/00286_003.html">堅勁！陳婉婷獲頒銅紫荊星章</a>
+    	                        </li>
+ 							
+                        </ul>
+                        
+                    </div><!--//sportBoxCTN-->
+
+            </div>
+            <div id="sectionSummay-right">
+            
+
+                
+                	<div id="videoNewsBoxCTN">
+                    	<div class="title videoTitle"><a class="btnHome" title="影片新聞"><em>影片新聞</em></a></div>
+						<ol class="numberList"></ol>
+                    </div>
+                
+                	<div class="nextCTN" id="commBoxCTN">
+                    
+						
+                    	<div class="title">
+							<a title="社論專欄" class="btnHome" href="/cnt/news/20160701/00186_001.html"><em>社論專欄</em></a>
+						</div>
+                        
+                            <h2>東方日報正論</h2>
+                            <a href="/cnt/news/20160701/00186_001.html">訪港客跌跌不休  嫌錢腥自食其果</a>
+                        
+                            <h2>功夫茶</h2>
+                            <a href="/cnt/news/20160701/00190_001.html">荷蘭水蓋年年派  唔理好醜白兔仔</a>
+                        
+                            <h2>世界視線</h2>
+                            <a href="/cnt/china_world/20160701/00192_001.html">土耳其血腥恐襲  全面內戰在眼前</a>
+                        
+                            <h2>神州觀察</h2>
+                            <a href="/cnt/china_world/20160701/00182_001.html">魯煒黯然去職 網絡沙皇失寵</a>
+                        
+                            <h2>產評</h2>
+                            <a href="/cnt/finance/20160701/00273_001.html">政經局勢風雲變 人幣再貶港最傷</a>
+                        
+                        
+                    </div><!--//commBoxCTN-->
+                
+            
+            </div>
+        </div>
+    </div><!--//pageCTN-left-->
+    <div id="pageCTN-right">
+    	<div id="adsCTN">
+        	<div class="textAdsCTN"><script type="text/javascript" src="/js/adv/text_00337.js"></script></div>
+            <div class="nextCTN" id="ads_large1"><script type="text/javascript" src="/js/adv/large1_00337.js"></script></div>
+            
+            <!--new 20111215-->
+  			<script type="text/javascript">ODN.ad.write('float', '00337'); </script> 
+            <script type="text/javascript">ODN.ad.write('floatcrazy', '00337');</script>               
+            
+            
+            <div class="nextCTN"><script type="text/javascript" src="/js/adv/large2_00337.js"></script></div>
+            <!--s:quotebox--><script type="text/javascript" src="/js/m18-quotebox.js"></script><!--e:quotebox-->
+            <div class="nextCTN"><script type="text/javascript" src="/js/adv/mini_00337.js"></script></div>
+                        
+      
+        </div><!--//adsCTN-->
+        
+        <div id="miscContentCTN">
+            <div class="miscBox nextCTN" id="pollInfoCTN">
+            <h2>民意中心</h2>
+            <div class="hrThin"></div>
+
+            <div>快些投下你的一票：</div>
+            </div>
+            
+            <div class="miscBox nextCTN">
+                <!-- 慈善基金 (element#9) begin -->
+                
+                <h2>慈善基金</h2>
+                <div class="hrThin"></div>
+                <div class="home_chaTitle"></div>
+                <!-- 慈善基金 end -->
+            </div>
+            
+        </div><!--//miscContentCTN-->
+
+    </div><!--//pageCTN-right-->
+<!-- InstanceEndEditable -->
+</div>
+<div id="bottomNavCTN">
+	<div class="layout">
+		<div class="contentBox clear">
+        <ul class="menu">
+        	<li><a href="/cnt/news/20160701/index.html">要聞港聞</a></li>
+            <li><a href="/cnt/china_world/20160701/index.html">兩岸國際</a></li>
+            <li><a href="/cnt/finance/20160701/index.html">財經</a></li>
+            <li><a href="/cnt/entertainment/20160701/index.html">娛樂</a></li>
+            <li><a href="/cnt/lifestyle/20160701/index.html">副刊</a></li>
+            <li><a href="/cnt/adult/20160701/index.html">男極圈</a></li>
+            <li><a href="/cnt/sport/20160701/index.html">體育</a></li>
+            <li><a href="http://racing.on.cc/" target="_blank">馬經</a></li>
+            <li><a href="http://football.on.cc/" target="_blank">波經</a></li>
+            <li><a href="/cnt/news/20160701/00186_001.html">社論專欄</a></li>
+            <li><a href="/cnt/charity/index.html">慈善基金</a></li>
+            <li><a href="/cnt/sitemap/20160701/index.html">新聞總覽</a></li>
+        </ul>
+        <div class="rightPanel">
+        <ul class="menu">
+            <li class="first"><a href="#top" class="goTop">返回頁頂</a></li>
+        </ul>
+        </div>
+        </div>
+    </div>
+</div>
+<div id="footerCTN">
+	<div class="layout">
+    	<div class="contentBox"><script type="text/javascript">ODN.footer.init();</script></div>
+    </div>
+</div>
+</body>
+
+<!-- InstanceEnd --></html>
+
+links =  ['http://orientaldaily.on.cc/cnt/china_world/20160701/index.html', 'http://orientaldaily.on.cc/cnt/china_world/20160701/index.html', 'http://orientaldaily.on.cc/cnt/china_world/20160701/00180_001.html', 'http://orientaldaily.on.cc/cnt/china_world/20160701/00180_007.html', 'http://orientaldaily.on.cc/cnt/china_world/20160701/00178_001.html', 'http://orientaldaily.on.cc/cnt/china_world/20160701/00192_001.html', 'http://orientaldaily.on.cc/cnt/china_world/20160701/00182_001.html', 'http://orientaldaily.on.cc/cnt/china_world/20160701/index.html']
+++++++++++++++++++++++++++++++++++++++++++++++++
