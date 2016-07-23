@@ -1,2 +1,5 @@
 *~
+classification/data/
+classification/data_processed_test/
+classification/data_processed_train/
 

@@ -59,110 +59,43 @@ class LinkParser(HTMLParser): # will be used by apple spider
         else:
             return "",[]
 
-
-
 class Spider:
 
     def __init__(self, baseUrl=None, rules=None, callback=None):
-        # self.baseUrl = baseUrl or [('http://hkm.appledaily.com/list.php?category_guid=10829391&category=instant', 0)] # news link
-        # self.baseUrl = baseUrl or [('http://hkm.appledaily.com/detail.php?guid=55369858&category_guid=10829391&category=instant&issue=20160717', 0)]
-        # self.rules = rules or {'link_prefix': ['http://hkm.appledaily.com/detail.php']}
-
-        # self.baseUrl = baseUrl or [('http://orientaldaily.on.cc/cnt/main/20160701/index.html', 0)] # news link
-        self.baseUrl = baseUrl or [('http://orientaldaily.on.cc/cnt/finance/20160717/00202_001.html', 0)]
-        self.rules = rules or {'link_prefix': ['http://orientaldaily.on.cc/cnt/china_world/']}
-
-        self.callback = callback # callback function
-        print('Inited a AppleSpider, baseUrls =', self.baseUrl[0])
-        self.count  =0
-
-    def setCallback(self,callback):
-        self.callback = callback
+        self.baseUrl = baseUrl or [('http://orientaldaily.on.cc/cnt/finance/20160717/', 0)]
+        self.rules = rules or {'link_prefix': ['http://orientaldaily.on.cc/cnt/finance/20160717/']}
 
     def extract_content_orientaldaily(self, html, url):
         """ Extract oriental daily 1 header, 2 contect """
         soup = BeautifulSoup(html, 'html.parser')
-        print (soup.prettify())
-        content = ''
-        lastUpdateTime = None
-        title = ''
-        if soup.select('.lastupdate'):
-            lastUpdateTime = soup.select('.lastupdate')[0].text
-        if soup.select('#content-article h1'):
-            title = soup.select('#content-article h1')[0].text
-        paragraphs = soup.select('#content-article p')
-        for paragraph in paragraphs:
-            if paragraph.get('class') is None or ( paragraph.get('class') not in [ ['video-caption'], ['next'] ] ):
-                if not paragraph.text.startswith('【'):
-                    content += paragraph.text
+        # print (soup.prettify())
+        contents = soup.find_all(['p','h3'])
+        content_string = ''
+        for c in contents:
+            content_string += c.getText() + '\n'
+        return content_string
 
-        print ( 'title = ', soup.title)
-        print ('content = ', content)
-        print ('lastUpdateTime = ', lastUpdateTime)
-
-
-    def extract_content_apple(self, html, url):
-        soup = BeautifulSoup(html, 'html.parser')
-        content = ''
-        lastUpdateTime = None
-        title = ''
-        if soup.select('.lastupdate'):
-            lastUpdateTime = soup.select('.lastupdate')[0].text
-        if soup.select('#content-article h1'):
-            title = soup.select('#content-article h1')[0].text
-        paragraphs = soup.select('#content-article p')
-        for paragraph in paragraphs:
-            if paragraph.get('class') is None or ( paragraph.get('class') not in [ ['video-caption'], ['next'] ] ):
-                if not paragraph.text.startswith('【'):
-                    content += paragraph.text
-
-        print ( 'title = ', title)
-        print ('content = ', content)
-        print ('lastUpdateTime = ', lastUpdateTime)
-
-        # if callback is set and has a last update time -> callback
-        if self.callback is not None and lastUpdateTime is not None:
-            self.callback(title, content, url, lastUpdateTime)
-
-    # And finally here is our spider. It takes in an URL, a word to find,
-    # and the number of pages to search through before giving up
-    def crawl(self, maxLevel=0):
-        print('[Crawl] Page to visit = ', self.baseUrl)
+    def crawl_and_save(self, maxLevel=1, save_prefix='finance/'):
+        """ Craw the page with maxLevel """
         pagesToVisit = self.baseUrl
-
         levelVisited = 0
-        # The main loop. Create a LinkParser and get all the links on the page.
-        # Also search the page for the word or string
-        # In our getLinks function we return the web page
-        # (this is useful for searching for the word)
-        # and we return a set of links from that web page
-        # (this is useful for where to go next)
         while pagesToVisit != []:
-            # Start from the beginning of our collection of pages to visit:
             url, levelVisited = pagesToVisit[0]
             if levelVisited > maxLevel:
-                print ('[Crawl] levelVisited = ', levelVisited, ' reached maxLevel =', levelVisited, ', Break ..')
                 break
             pagesToVisit = pagesToVisit[1:]
-            print('[Crawl] levelVisited = ', levelVisited, " Visiting:", url)
-
-            # a LinkParser
             parser = LinkParser()
-
-            # return the (web page html, a set of links from that web page, initially the root page only)
-            data, links = parser.get_Content_Links(url, self.rules)
-            # print ('data = ', data)
-            # print ('links = ', links)
-            print ('++++++++++++++++++++++++++++++++++++++++++++++++')
-
-
-            # parse html to extract header, content
-            self.extract_content_orientaldaily(data, url)
-
-            # parse data (html) to extract contents from it with predefined rules
-            # self.extract_content_apple(data,url)
-
-            # Add the pages that we visited to the end of our collection
-            # of pages to visit:
-            # links = [(link, levelVisited+1) for link in links ]
-            # pagesToVisit = pagesToVisit + links
+            # get html, links
+            html, links = parser.get_Content_Links(url, self.rules)
+            # get content string from html
+            content_string = self.extract_content_orientaldaily(html, url)
+            print ('Crawled : ', url)
+            # write the string
+            if levelVisited > 0 and content_string != '':
+                fwrite = open(save_prefix+'/'+url.replace('/', '-')+'.txt', 'w')
+                fwrite.write(url+'\n')
+                fwrite.write(content_string)
+                fwrite.close()
+            # Add the pages that we visited to the end of our collection of pages to visit:
+            links = [(link, levelVisited+1) for link in links ]
+            pagesToVisit = pagesToVisit + links
