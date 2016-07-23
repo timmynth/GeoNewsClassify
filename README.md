@@ -38,6 +38,7 @@ entertainment       0.92      0.98      0.95     33476
  [  220  1284   139 10351  1061     5]
  [ 1413   120   612     7 44878     2]
  [   26   520    15    11    67  1115]]
+
 Test acc =  0.944443002155
                precision    recall  f1-score   support
 

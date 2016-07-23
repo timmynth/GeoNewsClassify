@@ -6,6 +6,14 @@ from sklearn import feature_extraction
 from sklearn.feature_extraction.text import TfidfVectorizer
 import codecs
 
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import SGDClassifier
+from sklearn import metrics
+import numpy as np
+
+
 # config jieba
 jb.load_userdict('resource/location+words.txt')
 
@@ -90,14 +98,9 @@ def gather_XY():
 	return X_train, Y_train, X_test, Y_test
 
 
-def train_and_benchmark(X_train, Y_train, X_test, Y_test, save_model_path=''):
+
+def train_and_benchmark(X_train, Y_train, X_test, Y_test, save_model_path=None):
 	# train SVM
-	from sklearn.feature_extraction.text import CountVectorizer
-	from sklearn.feature_extraction.text import TfidfTransformer
-	from sklearn.pipeline import Pipeline
-	from sklearn.linear_model import SGDClassifier
-	from sklearn import metrics
-	import numpy as np
 	text_clf = Pipeline([('vect', CountVectorizer()),
 	                     ('tfidf', TfidfTransformer()),
 	                     ('clf', SGDClassifier(loss='hinge', penalty='l2',
@@ -114,18 +117,81 @@ def train_and_benchmark(X_train, Y_train, X_test, Y_test, save_model_path=''):
 	print 'Test acc = ', np.mean(predicted == Y_test)
 	print (metrics.classification_report(Y_test, predicted,target_names=categories))
 	print metrics.confusion_matrix(Y_test, predicted)
+	# save model
+	if save_model_path:
+		from sklearn.externals import joblib
+		joblib.dump(text_clf, save_model_path)
 
 
-def load_model():
-	pass
-	
-def predict_text(string):
-	pass
+
+# load the model for the classifier
+def load_clf(save_model_path):
+	from sklearn.externals import joblib
+	text_clf = joblib.load(save_model_path)
+	return text_clf
+
+def predict_testset(save_model_path, X_test, Y_test):
+	text_clf = load_clf(save_model_path)
+	# benchmark test
+	predicted = text_clf.predict(X_test)
+	print 'Test acc = ', np.mean(predicted == Y_test)
+	print (metrics.classification_report(Y_test, predicted,target_names=categories))
+	print metrics.confusion_matrix(Y_test, predicted)
 
 
+
+
+
+''' Training code '''
 # prepare_XY()
-X_train, Y_train, X_test, Y_test = gather_XY()
-train_and_benchmark(X_train, Y_train, X_test, Y_test, '')
+# X_train, Y_train, X_test, Y_test = gather_XY()
+# save_model_path = 'model/text_clf_v1.model.pkl'
+# train_and_benchmark(X_train, Y_train, X_test, Y_test, save_model_path) # training and benchmark
+# predict_testset(save_model_path, X_test, Y_test) # predict on testing set
+
+
+
+
+''' Deploy code '''
+class NewsClassifier:
+	def __init__(self,save_model_path):
+		# config jieba
+		jb.load_userdict('resource/location+words.txt')
+
+		# params
+		self.categories = [
+			'china_world','entertainment','finance','lifestyle','news','sport']
+		self.categories_index = {
+			'china_world':0,'entertainment':1,'finance':2,'lifestyle':3,'news':4,'sport':5}
+		self.text_clf = self.__load_clf(save_model_path)
+
+	def predict(self,string):
+		string_preprocessed = self.__preprocess_text(string)
+		prediction = self.text_clf.predict([string_preprocessed])
+		category = self.categories[prediction]
+		return category
+
+	def __load_clf(self,save_model_path):
+		from sklearn.externals import joblib
+		text_clf = joblib.load(save_model_path)
+		return text_clf
+
+	def __preprocess_text(self,txt):
+		# replace punctuations with space
+		txt = re.sub(
+			ur"[\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？、~@#￥%……&*（）：；《）《》“”()»〔〕-]+",
+			" ", txt.decode("utf8"))
+		words = jb.cut(txt, cut_all=False)
+		words_spaced = ' '.join(words)
+		return words_spaced
+
+# string = '<匯港通訊> 新宇環保(08068)獲批准將於主板上市及從創業板撤銷上市之股份轉板上市。股份於創業板買賣(股票代號:8068)的最後一日將為二零一六年七月二十九日。股份將於二零一六年八月一日上午九時正開始於主板買賣(股票代號:436)。'
+string = '藝人劉佩玥（Moon）與「宅男女神」陳瀅老友鬼鬼，經常糖黐豆一齊行街。前日黃昏六時許，兩女相約到九龍一個商場閒逛，吸引不少途人注目。初時兩人漫無目的邊行邊傾，未知是否因為陳瀅剛與賭王四房兒子何猷亨分手而心情差，故找劉佩玥傾訴呢？記者上前問陳瀅心情如何？她笑笑口表示無受情傷影響：「冇情傷過，不嬲好開心，啱啱食完嘢散吓步。」再問她是否隨時迎接第二春？她即拉住身旁的劉佩玥笑說：「佢咪係我第二春囉！」還懂得說笑，相信陳瀅心情不俗。'
+news_clf = NewsClassifier('model/text_clf_v1.model.pkl')
+print 'Category = ', news_clf.predict(string)
+
+
+
 
 
 
